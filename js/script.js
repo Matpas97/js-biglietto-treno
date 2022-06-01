@@ -6,32 +6,32 @@
 // va applicato uno sconto del 40% per gli over 65.
 // L'output del prezzo finale va messo fuori in forma umana 
 
-// Chiedo all'utente il numeroi di km che vuole percorrere
+// Chiedo all'utente il numero di km che vuole percorrere
 
-let userKm = parseInt( prompt('Gentile utente, quanti km vuole percorrere ?') );
+const userKm = parseInt( prompt('Gentile utente, quanti km vuole percorrere ?') );
 
 // Chiedo all'utente la sua eta
-let userAge = parseInt(prompt("Gentile utente, qual'è la sua eta ?") );
+const userAge = parseInt(prompt("Gentile utente, qual'è la sua eta ?") );
 
 // Prezzo scontato  del 20% per i minorenni
-const priceMinor = 0.16; 
+const priceMinor = ( 0.21 * 20 / 100);
 
 // Prezzo scontato del 40% per gli over 65 
-const PriceAdult = 0.12;
+const priceAdult = ( 0.21 * 40 /100);
 
-// Prezzo del Viaggio 
-
+// Prezzo totale del viaggio 
+let totalPrice = 0.21 * userKm;
 
 // Calcolo prezzo totale del viaggio per i minorenni e over 65
 
-
-
 if (userAge < 18 ) {
-    priceMinor = 'prezzo del biglietto per i minorenni';
+  totalPrice = totalPrice - totalPrice * priceMinor;
      
 }
 
 else if ( userAge > 65 ) {
-     priceAdult = 'prezzo del biglietto per gli over 65';
+  totalPrice = totalPrice - totalPrice * priceAdult;
 }
 
+// Stampoo in Pagina
+document.getElementById('usermessage').innerHTML='Il prezzo del biglietto del treno è di  ' + totalPrice.toFixed(2);
