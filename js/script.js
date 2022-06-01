@@ -13,14 +13,25 @@ let userKm = parseInt( prompt('Gentile utente, quanti km vuole percorrere ?') );
 // Chiedo all'utente la sua eta
 let userAge = parseInt(prompt("Gentile utente, qual'è la sua eta ?") );
 
-// Calcolo sconto del 20% per i minorenni
-const userMinor = ( 0.21 - (0.21 * 20 / 100));
+// Prezzo scontato  del 20% per i minorenni
+const priceMinor = 0.16; 
 
-// Calcolo sconto del 40% per gli over 65 
-const userAdult = ( 0.21 - (0.21 * 40 / 100));
+// Prezzo scontato del 40% per gli over 65 
+const PriceAdult = 0.12;
 
-// Calcolo prezzo totale del viaggio per i minorenni
+// Prezzo del Viaggio 
 
-let totalTrip;
 
-if (userMinor > 18 )
+// Calcolo prezzo totale del viaggio per i minorenni e over 65
+
+
+
+if (userAge < 18 ) {
+    priceMinor = 'prezzo del biglietto per i minorenni';
+     
+}
+
+else if ( userAge > 65 ) {
+     priceAdult = 'prezzo del biglietto per gli over 65';
+}
+
